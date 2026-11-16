@@ -1,0 +1,31 @@
+# PediRuta - Infraestructura local (Sprint 0, H01)
+# Levantar:  docker compose up -d
+# Ver estado: docker compose ps   (debe decir "healthy")
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: pediruta-db
+    environment:
+      POSTGRES_DB: pediruta
+      POSTGRES_USER: pediruta
+      POSTGRES_PASSWORD: pediruta
+    ports:
+      - "5432:5432"
+    volumes:
+      - datos-db:/var/lib/postgresql/data
+      - ./infra/db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pediruta -d pediruta"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  # Se agregan en sprints posteriores (no instalar todavía):
+  # rabbitmq  -> Sprint 5 (Unidad 3, colas)
+  # keycloak  -> Sprint 4 (Unidad 2, OAuth2/JWT) - opcional
+  # nginx     -> Sprint 7 (Unidad 3, balanceo)
+  # graphhopper -> Sprint 6 (rutas)
+
+volumes:
+  datos-db:

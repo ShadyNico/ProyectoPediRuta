@@ -1,0 +1,27 @@
+# Java / Maven
+backend/target/
+*.class
+*.log
+
+# IntelliJ / VS Code
+.idea/
+*.iml
+.vscode/
+
+# Node / React
+frontend/node_modules/
+frontend/dist/
+
+# Mapa: se suben el mapa final (santo_domingo.pmtiles, ~1 MB) y las fuentes,
+# así el grupo no necesita generarlo. NO se suben los datos de descarga (~1,5 GB).
+mapa/planetiler.jar
+mapa/data/
+frontend/public/mapa/*.layerstats.tsv.gz
+
+# Archivo creado por error en la raíz
+/package-lock.json
+
+# Sistema
+.DS_Store
+Thumbs.db
+.env

@@ -1,0 +1,2 @@
+Aqui van las fuentes del mapa (carpeta "Noto Sans Regular" con archivos .pbf).
+Las descarga mapa/generar-mapa.ps1. Sin ellas el mapa se ve, pero sin nombres de calles.

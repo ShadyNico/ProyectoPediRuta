@@ -1,0 +1,2 @@
+Aqui va santo_domingo.pmtiles (lo genera mapa/generar-mapa.ps1).
+No se sube a Git porque pesa mucho; cada integrante lo genera una vez.
